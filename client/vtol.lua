@@ -6,25 +6,25 @@
 --	This is the Client File.														--
 --------------------------------------------------------------------------------------
 
-vtolEnabled = true -- Allows Vertical take-off.
-reverseEnabled = true -- Allows the plane to go in reverse without affecting normal deceleration by CTRL.
-EasyLandEnabled = true -- If enabled the Landing Gear will come out when within 35m of any surface. Makes normal landing a lot easier.
+vtolEnabled = true		-- Allows Vertical take-off.
+reverseEnabled = true	-- Allows the plane to go in reverse without affecting normal deceleration by CTRL.
+EasyLandEnabled = true	-- If enabled the Landing Gear will come out when within 35m of any surface. Makes normal landing a lot easier.
 
 --		Instruction Text		--
-VTOLText = "\"Z\" for Vertical Take-Off" -- Instruction text to display at the bottom center of the screen when inside a valid plane.
-ReverseText = "\"X\" for Reverse Thrust" -- Instruction text to display at the bottom center of the screen when inside a valid plane.
+VTOLText = "\"Z\" for Vertical Take-Off"	-- Instruction text to display at the bottom center of the screen when inside a valid plane.
+ReverseText = "\"X\" for Reverse Thrust"	-- Instruction text to display at the bottom center of the screen when inside a valid plane.
 --	Instruction Text Placement	--
-VTOLTextPadding = 25 -- The padding between the bottom of the screen and the text. Default: 25
-ReverseTextPadding = 40 -- The padding between the bottom of the screen and the text. Default: 40
+VTOLTextPadding = 25	-- The padding between the bottom of the screen and the text. Default: 25
+ReverseTextPadding = 40	-- The padding between the bottom of the screen and the text. Default: 40
 
 --								A note Regarding Nose/Tail Pitch									--
 --	This command will force the nose/tail up or down regardless of whether you are flying or not.	--
 --	It does not replace the normal up and down function of W and S and does not hinder it either.	--
 --	It is added to allow you to level the plane out when hovering using VTOL.						--
 --	This is because sometimes the nose or tail will fall downwards when attempting to land.			--
-noseEnabled = true -- Allows the nose to be pitched if speed is less than 25. Sometimes necessary for Vertical landings.
-tailEnabled = true -- Allows the tail to be pitched if speed is less than 25. Sometimes necessary for Vertical landings.
-NoseTailSpeed = 25 -- The speed, in meters per second, at which the Nose and Tail may be pitched Default: 25 (Roughly 55.9 MPH or 90KPH
+noseEnabled = true	-- Allows the nose to be pitched if speed is less than 25. Sometimes necessary for Vertical landings.
+tailEnabled = true	-- Allows the tail to be pitched if speed is less than 25. Sometimes necessary for Vertical landings.
+NoseTailSpeed = 25	-- The speed, in meters per second, at which the Nose and Tail may be pitched Default: 25 (Roughly 55.9 MPH or 90KPH
 
 air_vehicles= {}
 
@@ -116,7 +116,7 @@ function RenderEvent()
             (Render.Height - vtol_size.y)-padding )
         Render:DrawText( vtol_pos, vtol_text, Color( 255, 255, 255 ) )
     end
-		if air_vehicles[LocalPlayer:GetVehicle():GetModelId()] then
+	if air_vehicles[LocalPlayer:GetVehicle():GetModelId()] then
 		local padding = ReverseTextPadding
         local reverse_text = ReverseText
         local reverse_size = Render:GetTextSize( reverse_text )
