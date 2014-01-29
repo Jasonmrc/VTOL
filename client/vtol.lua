@@ -10,8 +10,12 @@ vtolEnabled = true -- Allows Vertical take-off.
 reverseEnabled = true -- Allows the plane to go in reverse without affecting normal deceleration by CTRL.
 EasyLandEnabled = true -- If enabled the Landing Gear will come out when within 35m of any surface. Makes normal landing a lot easier.
 
+--		Instruction Text		--
 VTOLText = "\"Z\" for Vertical Take-Off" -- Instruction text to display at the bottom center of the screen when inside a valid plane.
 ReverseText = "\"X\" for Reverse Thrust" -- Instruction text to display at the bottom center of the screen when inside a valid plane.
+--	Instruction Text Placement	--
+VTOLTextPadding = 25 -- The padding between the bottom of the screen and the text. Default: 25
+ReverseTextPadding = 40 -- The padding between the bottom of the screen and the text. Default: 40
 
 --								A note Regarding Nose/Tail Pitch									--
 --	This command will force the nose/tail up or down regardless of whether you are flying or not.	--
@@ -104,7 +108,7 @@ function RenderEvent()
     if LocalPlayer:GetState() == 2 or LocalPlayer:GetState() == 5 then return end
     
 	if air_vehicles[LocalPlayer:GetVehicle():GetModelId()] then
-		local padding = 25 -- The gap between the bottom and the text
+		local padding = VTOLTextPadding
         local vtol_text = VTOLText
         local vtol_size = Render:GetTextSize( vtol_text )
         local vtol_pos = Vector2( 
@@ -113,7 +117,7 @@ function RenderEvent()
         Render:DrawText( vtol_pos, vtol_text, Color( 255, 255, 255 ) )
     end
 		if air_vehicles[LocalPlayer:GetVehicle():GetModelId()] then
-		local padding = 40 -- The gap between the bottom and the text
+		local padding = ReverseTextPadding
         local reverse_text = ReverseText
         local reverse_size = Render:GetTextSize( reverse_text )
         local reverse_pos = Vector2( 
