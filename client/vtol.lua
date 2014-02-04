@@ -104,7 +104,7 @@ function LandingGear()
 function RenderEvent()
 	if LocalPlayer:InVehicle() and LocalPlayer:GetState() ~= PlayerState.InVehicle then return end
 	if not IsValid(LocalPlayer:GetVehicle()) then return end
-	if LocalPlayer:GetWorld() ~= DefaultWorld then return end
+	if Game:GetState() ~= GUIState.Game then return end
     if LocalPlayer:GetState() == 2 or LocalPlayer:GetState() == 5 then return end
     
 	if air_vehicles[LocalPlayer:GetVehicle():GetModelId()] then
@@ -130,3 +130,5 @@ end
 Events:Subscribe( "InputPoll", LandingGear)
 Events:Subscribe( "PreTick", Activate)
 Events:Subscribe( "Render", RenderEvent)
+
+print(vtolEnabled)	--	Prints in the Client's console if Hover is active.

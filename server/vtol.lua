@@ -9,9 +9,7 @@
 function Vtol( action, player )
         vehicle = player:GetVehicle()
 --		If they're not fully seated in the vehicle, ignore the command		--
-	if not IsValid(vehicle) then
-		return
-	end
+	if not IsValid(vehicle) then return end
 --					Individual settings for the power of VTOL for each plane			--
 --	It is suggested not to put the value above 1.0 nor below 0.1						--
 --	Doing so will cause the plane to be thrown into the air or not get off the ground.	--
